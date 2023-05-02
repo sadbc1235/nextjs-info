@@ -6,13 +6,23 @@ export default function NavBar() {
 
     return (
         <nav>
-            <Link href="/">
-                <span style={{color: router.pathname === '/' ? 'red' : 'blue'}}>Home</span>
+            <Link legacyBehavior href="/">
+                <a className={router.pathname === '/' ? 'active' : ''}>Home</a>
             </Link>
-            <Link href="/about">
-                <span style={{color: router.pathname === '/about' ? 'red' : 'blue'}}>About</span>
+            <Link legacyBehavior href="/about">
+                <a className={router.pathname === '/about' ? 'active' : ''}>About</a>
             </Link>
-            
+
+            <style jsx>
+            {`
+                a {
+                    text-decoration: none;
+                }
+                .active {
+                    color: tomato;
+                }
+            `}
+            </style>
         </nav>
     );
 }
